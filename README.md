@@ -35,7 +35,7 @@ Note that you point your browser to "localhost" because when the VM is created, 
 A list of available Vagrant boxes is shown at http://www.vagrantbox.es. 
 
 # Vagrant box location
-The Vagrant box is downloaded to the ~/.vagrant.d/boxes directory. On Windows, this is C:\Users\{your-username}\.vagrant.d\boxes.
+The Vagrant box is downloaded to the ~/.vagrant.d/boxes directory. On Windows, this is C:/Users/{your-username}/.vagrant.d/boxes.
 
 # References
 This project was kludge together with great pointers from all around the internet. 
