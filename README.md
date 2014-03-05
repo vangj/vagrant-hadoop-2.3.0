@@ -13,6 +13,7 @@ This Vagrant project creates a VM with single node setup of Hadoop v2.3.0 with Y
 7. Run ```vagrant destroy``` when you want to destroy and get rid of the VM.
 
 Some gotcha's.
+
 1. Make sure you download Vagrant v1.4.3 or higher.
 2. Make sure when you clone this project, you preserve the Unix/OSX end-of-line (EOL) characters. The scripts will fail with Windows EOL characters.
 3. Make sure you have 8Gb of free memory for the VM. You may change the Vagrantfile to specify smaller memory requirements.
