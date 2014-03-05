@@ -23,11 +23,11 @@ Some gotcha's.
 # Web UI
 You can check the following URLs to monitor the Hadoop daemons.
 
-1. http://localhost:50070/dfshealth.html This is for the NameNode (NN).
-2. http://localhost:50075/dataNodeHome.jsp This is for the DataNode (DN).
-3. http://localhost:8088/cluster This is for the ResourceManager (RM).
-4. http://localhost:8042/node This is for the NodeManager (NM).
-5. http://localhost:19888/jobhistory This is for the JobHistory (JH).
+1. [NameNode] (http://localhost:50070/dfshealth.html)
+2. [DataNode] (http://localhost:50075/dataNodeHome.jsp)
+3. [ResourceManager] (http://localhost:8088/cluster)
+4. [NodeManager] (http://localhost:8042/node)
+5. [JobHistory] (http://localhost:19888/jobhistory)
 
 Note that you point your browser to "localhost" because when the VM is created, it is specified to perform port forwarding from your desktop to the VM.
 
