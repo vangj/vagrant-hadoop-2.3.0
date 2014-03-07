@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		end
 		master.vm.network :private_network, ip: "10.211.55.101"
 		master.vm.hostname = "hadoop-yarn"
-		master.vm.provision :shell, :path=> 'setup.sh'
+		master.vm.provision :shell, :path=> 'test.sh'
 		master.vm.network "forwarded_port", guest: 50070, host: 50070
 		master.vm.network "forwarded_port", guest: 50075, host: 50075
 		master.vm.network "forwarded_port", guest: 8088, host: 8088

@@ -1,1 +1,3 @@
 /.vagrant
+/resources/hadoop-2.3.0.tar.gz
+/resources/jdk-7u51-linux-x64.gz

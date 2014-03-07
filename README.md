@@ -20,6 +20,14 @@ Some gotcha's.
 4. This project has NOT been tested with the VMWare provider for Vagrant.
 5. You may change the script (setup.sh) to point to a different location for Hadoop to be downloaded from. Here is a list of mirrors: http://www.apache.org/dyn/closer.cgi/hadoop/common/.
 
+# Make the VM setup faster
+You can make the VM setup even faster if you pre-download the Hadoop and Oracle JDK into the /resources directory.
+
+1. /resources/hadoop-2.3.0.tar.gz
+2. /resources/jdk-7u51-linux-x64.gz
+
+The setup script will automatically detect if these files (with precisely the same name) exists and use them instead. If you are using slightly different versions, you will have to modify the script accordingly.
+
 # Web UI
 You can check the following URLs to monitor the Hadoop daemons.
 

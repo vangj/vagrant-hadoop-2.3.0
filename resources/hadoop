@@ -5,7 +5,7 @@
 HADOOP_PREFIX=/usr/local/hadoop
 HADOOP_YARN_HOME=/usr/local/hadoop
 HADOOP_CONF_DIR=${HADOOP_PREFIX}/etc/hadoop
-export JAVA_HOME=/usr/lib/jvm/jre
+export JAVA_HOME=/usr/local/java
 
 function start {
  echo "Starting namenode, datanode, resourcemanager, nodemanager, proxyserver and historyserver"
