@@ -26,7 +26,7 @@ You can make the VM setup even faster if you pre-download the Hadoop and Oracle 
 1. /resources/hadoop-2.3.0.tar.gz
 2. /resources/jdk-7u51-linux-x64.gz
 
-The setup script will automatically detect if these files (with precisely the same name) exist and use them instead. If you are using slightly different versions, you will have to modify the script accordingly.
+The setup script will automatically detect if these files (with precisely the same names) exist and use them instead. If you are using slightly different versions, you will have to modify the script accordingly.
 
 # Web UI
 You can check the following URLs to monitor the Hadoop daemons.
