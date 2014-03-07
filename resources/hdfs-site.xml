@@ -32,7 +32,7 @@
  </property>
  <!-- disable permissions; only for development, of course -->
  <property>
-  <name>dfs.permissions</name>
+  <name>dfs.permissions.enabled</name>
   <value>false</value>
  </property>
 </configuration>
