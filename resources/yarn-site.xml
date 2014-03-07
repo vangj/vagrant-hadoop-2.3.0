@@ -21,4 +21,9 @@
   <name>yarn.nodemanager.aux-services</name>
   <value>mapreduce_shuffle</value>
  </property>
+ <!-- enable log aggregation, this is false by default -->
+ <property>
+  <name>yarn.log-aggregation-enable</name>
+  <value>true</value>
+ </property>
 </configuration>
