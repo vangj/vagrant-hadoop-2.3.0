@@ -64,6 +64,8 @@ function setupHadoop {
 	cp -f /vagrant/resources/mapred-site.xml /usr/local/hadoop/etc/hadoop
 	cp -f /vagrant/resources/yarn-site.xml /usr/local/hadoop/etc/hadoop
 	cp -f /vagrant/resources/slaves /usr/local/hadoop/etc/hadoop
+	cp -f /vagrant/resources/hadoop-env.sh /usr/local/hadoop/etc/hadoop
+	cp -f /vagrant/resources/yarn-env.sh /usr/local/hadoop/etc/hadoop
 	echo "modifying permissions on local file system"
 	chown -fR vagrant /tmp/hadoop-namenode
     chown -fR vagrant /tmp/hadoop-logs
