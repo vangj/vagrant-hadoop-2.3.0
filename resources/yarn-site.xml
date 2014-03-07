@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<?xml version="1.0"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,26 +12,13 @@
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
-
-<!-- Put site-specific property overrides in this file. -->
-
 <configuration>
+
+<!-- Site specific YARN configuration properties -->
+ <!-- known bug, just search it on the internet -->
+ <!-- this value has to be explicitly set or mapreduce asplodes on sort/shuffle -->
  <property>
-  <name>dfs.namenode.name.dir</name>
-  <value>/tmp/hadoop-namenode</value>
- </property>
- <property>
-  <name>dfs.datanode.data.dir</name>
-  <value>/tmp/hadoop-datanode</value>
- </property>
- <!-- enable webhdfs -->
- <property>
-  <name>dfs.webhdfs.enabled</name>
-  <value>true</value>
- </property>
- <!-- disable permissions; only for development, of course -->
- <property>
-  <name>dfs.permissions</name>
-  <value>false</value>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
  </property>
 </configuration>

@@ -28,6 +28,8 @@ cp -f /vagrant/resources/java.sh /etc/profile.d/java.sh
 cp -f /vagrant/resources/hadoop.sh /etc/profile.d/hadoop.sh
 cp -f /vagrant/resources/core-site.xml /usr/local/hadoop/etc/hadoop
 cp -f /vagrant/resources/hdfs-site.xml /usr/local/hadoop/etc/hadoop
+cp -f /vagrant/resources/mapred-site.xml /usr/local/hadoop/etc/hadoop
+cp -f /vagrant/resources/yarn-site.xml /usr/local/hadoop/etc/hadoop
 cp -f /vagrant/resources/slaves /usr/local/hadoop/etc/hadoop
 cp -f /vagrant/resources/hadoop /etc/init.d/hadoop
 

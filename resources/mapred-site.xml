@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,22 +17,9 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
+ <!-- without this property, mapreduce will not run as a yarn -->
  <property>
-  <name>dfs.namenode.name.dir</name>
-  <value>/tmp/hadoop-namenode</value>
- </property>
- <property>
-  <name>dfs.datanode.data.dir</name>
-  <value>/tmp/hadoop-datanode</value>
- </property>
- <!-- enable webhdfs -->
- <property>
-  <name>dfs.webhdfs.enabled</name>
-  <value>true</value>
- </property>
- <!-- disable permissions; only for development, of course -->
- <property>
-  <name>dfs.permissions</name>
-  <value>false</value>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
  </property>
 </configuration>
