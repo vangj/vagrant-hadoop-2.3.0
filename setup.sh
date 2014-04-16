@@ -1,8 +1,10 @@
 #!/bin/bash
+export JAVA_HOME=/usr/local/java
+export HADOOP_PREFIX=/usr/local/hadoop
 HADOOP_ARCHIVE=hadoop-2.3.0.tar.gz
 JAVA_ARCHIVE=jdk-7u51-linux-x64.gz
 HADOOP_MIRROR_DOWNLOAD=http://apache.mirror.quintex.com/hadoop/common/hadoop-2.3.0/hadoop-2.3.0.tar.gz
-
+	
 function fileExists {
 	FILE=/vagrant/resources/$1
 	if [ -e $FILE ]
@@ -66,20 +68,24 @@ function setupHadoop {
 	cp -f /vagrant/resources/slaves /usr/local/hadoop/etc/hadoop
 	cp -f /vagrant/resources/hadoop-env.sh /usr/local/hadoop/etc/hadoop
 	cp -f /vagrant/resources/yarn-env.sh /usr/local/hadoop/etc/hadoop
+	cp -f /vagrant/resources/yarn-daemon.sh /usr/local/hadoop/sbin
+	cp -f /vagrant/resources/mr-jobhistory-daemon.sh /usr/local/hadoop/sbin
 	echo "modifying permissions on local file system"
 	chown -fR vagrant /tmp/hadoop-namenode
     chown -fR vagrant /tmp/hadoop-logs
     chown -fR vagrant /tmp/hadoop-datanode
-	chown -fR vagrant /usr/local/hadoop-2.3.0
+	mkdir /usr/local/hadoop-2.3.0/logs
+	chown -fR vagrant /usr/local/hadoop-2.3.0/logs
 }
 
 function setupEnvVars {
 	echo "creating java environment variables"
-	if fileExists $JAVA_ARCHIVE; then
-		echo export JAVA_HOME=/usr/local/jdk1.7.0_51 >> /etc/profile.d/java.sh
-	else
-		echo export JAVA_HOME=/usr/lib/jvm/jre >> /etc/profile.d/java.sh
-	fi
+	#if fileExists $JAVA_ARCHIVE; then
+	#	echo export JAVA_HOME=/usr/local/jdk1.7.0_51 >> /etc/profile.d/java.sh
+	#else
+	#	echo export JAVA_HOME=/usr/lib/jvm/jre >> /etc/profile.d/java.sh
+	#fi
+	echo export JAVA_HOME=/usr/local/java >> /etc/profile.d/java.sh
 	echo export PATH=\${JAVA_HOME}/bin:\${PATH} >> /etc/profile.d/java.sh
 	
 	echo "creating hadoop environment variables"
@@ -95,7 +101,7 @@ function setupHadoopService {
 
 function setupNameNode {
 	echo "setting up namenode"
-	sudo -u vagrant -i /vagrant/format-namenode.sh
+	/usr/local/hadoop-2.3.0/bin/hdfs namenode -format myhadoop
 }
 
 function startHadoopService {
@@ -120,8 +126,6 @@ function installJava {
 }
 
 function initHdfsTempDir {
-	export JAVA_HOME=/usr/local/java
-	export HADOOP_PREFIX=/usr/local/hadoop
 	$HADOOP_PREFIX/bin/hdfs --config $HADOOP_PREFIX/etc/hadoop dfs -mkdir /tmp
 	$HADOOP_PREFIX/bin/hdfs --config $HADOOP_PREFIX/etc/hadoop dfs -chmod -R 777 /tmp
 }
