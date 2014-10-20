@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e # exit on first error
 
 export JAVA_HOME=/usr/local/java
 export HADOOP_PREFIX=/usr/local/hadoop
