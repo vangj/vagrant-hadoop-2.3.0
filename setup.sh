@@ -1,9 +1,10 @@
 #!/bin/bash
+
 export JAVA_HOME=/usr/local/java
 export HADOOP_PREFIX=/usr/local/hadoop
 HADOOP_ARCHIVE=hadoop-2.3.0.tar.gz
 JAVA_ARCHIVE=jdk-7u51-linux-x64.gz
-HADOOP_MIRROR_DOWNLOAD=http://apache.mirror.quintex.com/hadoop/common/hadoop-2.3.0/hadoop-2.3.0.tar.gz
+HADOOP_MIRROR_DOWNLOAD=http://apache.petsads.us/hadoop/common/hadoop-2.3.0/hadoop-2.3.0.tar.gz
 	
 function fileExists {
 	FILE=/vagrant/resources/$1
