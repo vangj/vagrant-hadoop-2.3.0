@@ -42,7 +42,7 @@ function installLocalHadoop {
 
 function installRemoteHadoop {
 	echo "install hadoop from remote file"
-	curl -o /home/vagrant/hadoop-2.3.0.tar.gz -O -L $HADOOP_MIRROR_DOWNLOAD
+	curl -o /home/vagrant/hadoop-2.3.0.tar.gz -O -L $HADOOP_MIRROR_DOWNLOAD --progress-bar
 	tar -xzf /home/vagrant/hadoop-2.3.0.tar.gz -C /usr/local
 }
 
