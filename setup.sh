@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/bin/bash -x
 export JAVA_HOME=/usr/local/java
 export HADOOP_PREFIX=/usr/local/hadoop
-HADOOP_ARCHIVE=hadoop-2.3.0.tar.gz
+HADOOP_VERSION=2.5.1 
+HADOOP_ARCHIVE=hadoop-${HADOOP_VERSION}.tar.gz   
 JAVA_ARCHIVE=jdk-7u51-linux-x64.gz
-HADOOP_MIRROR_DOWNLOAD=http://apache.mirror.quintex.com/hadoop/common/hadoop-2.3.0/hadoop-2.3.0.tar.gz
+HADOOP_MIRROR_DOWNLOAD=http://apache.mirror.quintex.com/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
 	
 function fileExists {
 	FILE=/vagrant/resources/$1
@@ -37,12 +38,14 @@ function installLocalHadoop {
 	echo "install hadoop from local file"
 	FILE=/vagrant/resources/$HADOOP_ARCHIVE
 	tar -xzf $FILE -C /usr/local
+	echo here is hadoop stuff
+	ls /usr/local
 }
 
 function installRemoteHadoop {
 	echo "install hadoop from remote file"
-	curl -o /home/vagrant/hadoop-2.3.0.tar.gz -O -L $HADOOP_MIRROR_DOWNLOAD
-	tar -xzf /home/vagrant/hadoop-2.3.0.tar.gz -C /usr/local
+	curl -o /home/vagrant/hadoop-${HADOOP_VERSION}.tar.gz -O -L $HADOOP_MIRROR_DOWNLOAD
+	tar -xzf /home/vagrant/hadoop-${HADOOP_VERSION}.tar.gz -C /usr/local
 }
 
 function setupJava {
@@ -59,7 +62,9 @@ function setupHadoop {
 	mkdir /tmp/hadoop-namenode
 	mkdir /tmp/hadoop-logs
 	mkdir /tmp/hadoop-datanode
-	ln -s /usr/local/hadoop-2.3.0 /usr/local/hadoop
+	ln -s /usr/local/hadoop-${HADOOP_VERSION} /usr/local/hadoop
+
+
 	echo "copying over hadoop configuration files"
 	cp -f /vagrant/resources/core-site.xml /usr/local/hadoop/etc/hadoop
 	cp -f /vagrant/resources/hdfs-site.xml /usr/local/hadoop/etc/hadoop
@@ -74,8 +79,8 @@ function setupHadoop {
 	chown -fR vagrant /tmp/hadoop-namenode
     chown -fR vagrant /tmp/hadoop-logs
     chown -fR vagrant /tmp/hadoop-datanode
-	mkdir /usr/local/hadoop-2.3.0/logs
-	chown -fR vagrant /usr/local/hadoop-2.3.0/logs
+	mkdir /usr/local/hadoop-${HADOOP_VERSION}/logs
+	chown -fR vagrant /usr/local/hadoop-${HADOOP_VERSION}/logs
 }
 
 function setupEnvVars {
@@ -101,7 +106,7 @@ function setupHadoopService {
 
 function setupNameNode {
 	echo "setting up namenode"
-	/usr/local/hadoop-2.3.0/bin/hdfs namenode -format myhadoop
+	/usr/local/hadoop-${HADOOP_VERSION}/bin/hdfs namenode -format myhadoop
 }
 
 function startHadoopService {
